@@ -89,7 +89,7 @@ console.log(janeDoe.sayName() + " " + janeDoe.greet(johnDoe));
 console.log(jimSmith.sayName() + " " + jimSmith.greet(janeDoe));
 
 // ___PATTERN | let object = {property: "Value"}
-// ___PATTERN | let newObject = Object.create(prototypeObject, {propertyToAddOrChange: {value: "valueName"}})
+// ___PATTERN | let newObject = Object.create(objectToBeBasedOn, {propertyToAddOrChange: {value: "valueName"}})
 
 // -------- Generating Objects with Object.create and add properties in *** EES 6: Most concise *** ---------
 
@@ -119,4 +119,48 @@ you.name = "Jerry"; //changes name to Jerry
 me.greeting();
 you.greeting();
 
+// ___PATTERN | const object = {property: "value"}
+// ___PATTERN | objectEffected.propertyToChangeOrAdd = "value"
+// ___PATTERN | const newObject = Object.create(objectToBeBasedOn)
+//              newObject.propertyToChangeOrAdd = "value"
+
 // ========================================  STRUCTURAL PATTERN ============================================
+
+// ++++++++ Constructor Function ++++++++++
+
+// Constructor functions serve to structure data into objects and don't actually output.
+// Below, any data passed will get structured into the name and temp values.
+function Beverage(name, temp) {
+  this.name = name;
+  this.temp = temp;
+};
+// This creates a method (drink) that receives the data from Beverage constructor 
+Beverage.prototype.drink = function() {
+  console.log(`I'm drinking ${this.name}`);
+};
+// creates another constructor for cofee that...
+function Coffee(type) {
+    Beverage.call(this, "coffee", "hot") // uses the name, temp of Beverage to pass "coffee", "hot"
+    this.type = type; // and adds a property of type
+}
+
+// Make a new object that uses Coffee as a prototype and also equals Beverage as a prototype
+// This chains both constructors properties
+Coffee.prototype = Object.create(Beverage.prototype)
+
+//This creates a method that receives data from combined constructors above
+Coffee.prototype.sip = function () {
+    console.log(`Sipping some nice ${this.type} ${this.temp} ${this.name}`)
+}
+
+//This creates a new Beverage object with "water", "cold" passed to it
+let water = new Beverage("water", "cold");
+
+//This creates a new Coffee object with "dark" passed to it
+let coffee = new Coffee("dark")
+
+// Take the new Beverage object(water) then has the drink method executed on it
+water.drink();
+
+// Takes the new Coffee object(coffee) then has the sip method executed ont it
+coffee.sip()
