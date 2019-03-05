@@ -1,3 +1,5 @@
+// ========================================= this keyword =========================================
+
 // ========== When a method is part of an object, "this" refers the the object that owns the method
 const person = {
   first: "Larry",
@@ -44,9 +46,51 @@ const yetAnotherPerson = {
     // which refers to the method's parent object, giving access to that object in the regular function
     this.traits.forEach(function(traits){console.log(this.first + " is", traits)}, this);
     //                                                 ^____<______<____<______<_____^
-  } 
+    console.log("==============================")
+  }
+    
 }
 yetAnotherPerson.showTraits()
 // Returns: Joe is kind
 //          Joe is smart
 //          Joe is funny
+
+// ========== CAUTION, CAUTION ES6: "this" does not bind to parent object with arrow functions. You must manually bind it.
+// Avoid arrow functions with constructors
+const AnotherPerson2 = (first, last) => {
+  this.first = first,
+  this.last = last
+  
+  console.log(this);
+  // Returns: Error: "AnotherPerson2 is not a constructor" because "this" is referring to the Window/Global Object
+}
+
+// let ladyGaga = new AnotherPerson2("lady", "Gaga")
+
+
+
+// ========================================= bind keyword =========================================
+let dog = {
+  kind: "Colly",
+  color: "black",
+  sound: "Woof",
+  talk: function() {
+    console.log(this.sound)
+  }
+}
+// Returns "Woof"
+dog.talk()
+
+let talkFunction = dog.talk
+talkFunction()
+
+// Returns: undefined because the above is the same as...
+// and the function is no longer has a parent object for "this" to refer to
+// let talkFunction = function() {
+//   console.log(this.sound)
+// }
+// you can bind the talkFunction to the dog to give it access to the that object
+let boundTalkFunction = talkFunction.bind(dog);
+boundTalkFunction()
+
+
