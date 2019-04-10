@@ -1,0 +1,10 @@
+/* Responsive Grid Setup */
+.container {
+    display: grid;
+    grid-gap: 5px;
+    /* Repeats columns as needed. Column is min 100px and will spread each 
+    evenly across viewport until enough space is to fit another row*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    /* You could remove this line and the columns would make their own rows */
+    grid-template-rows: repeat(2, 100px);
+}

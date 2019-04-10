@@ -1,0 +1,57 @@
+/* Background with image tat covers across the width of the viewport, 
+and with a background color */
+* {
+  box-sizing: border-box;
+}
+
+/* full-size background image */
+.mydiv {
+  background: url("../images/adult-couple-dating-951290-scld.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-color: black;
+}
+
+/* Translucent background */
+.myDiv {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  margin-top: 2em;
+  padding: 3px;
+}
+
+/* One way to Vertically Align inside a div */
+
+.outerDiv {
+  display: inline-flex;
+}
+
+.innerDive {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* The hero image */
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/Coffee-light1.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Another way to do a darked background image */
+.mydiv {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/pexels-photo-1546168.png") no-repeat center center fixed;
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-color: black;
+}
