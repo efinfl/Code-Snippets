@@ -88,18 +88,54 @@ function reverseString7(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  let string = str;
+  let stringLower = string.toLowerCase();
+  let revStr = stringLower
+    .split("")
+    .reverse()
+    .join("");
+  let answer = "";
+  if (stringLower === revStr) {
+    answer = str + " is a palindrome";
+  } else {
+    answer = str + " is not a palindrome";
+  }
+  return answer;
+}
 
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
 
-function reverseInt(int) {}
+function reverseInt(int) {
+  inter = int
+    .toString()
+    .split("")
+    .reverse()
+    .join("");
+  console.log(typeof inter);
+
+  let parsed = parseInt(inter);
+  console.log(typeof parsed);
+
+  return parsed;
+}
 
 // CHALLENGE 4: CAPITALIZE LETTERS
 // Return a string with the first letter of every word capitalized
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
-function capitalizeLetters(str) {}
+function capitalizeLetters(str) {
+  // make sure all letters are lowercase and split each word into an array
+  let a = str.toLowerCase().split(" ");
+  // loop through a array with each word bering an item
+  for (let i = 0; i < a.length; i++) {
+    // for each item in a (a[i]) pick out indexes fro 0 to before 1 then
+    // make then uppercase, and add everything in a[i] from index 1 on.
+    a[i] = a[i].substring(0, 1).toUpperCase() + a[i].substring(1);
+  }
+  return a.join(" ");
+}
 
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
@@ -108,9 +144,11 @@ function maxCharacter(str) {}
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
-function fizzBuzz() {}
+function fizzBuzz() {
+  for (let i = 1; i < 100; i++) {}
+}
 
 // Call Function
-const output = reverseString6("hello");
+const output = capitalizeLetters("i love javascript");
 
 console.log(output);
