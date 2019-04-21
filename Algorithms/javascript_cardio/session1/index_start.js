@@ -137,18 +137,74 @@ function capitalizeLetters(str) {
   return a.join(" ");
 }
 
+// Using Map //////////////////////////////////////////////////
+function capitalizeLettersMap(str) {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(function(word) {
+      return word[0].toUpperCase() + word.substr(1);
+    })
+    .join(" ");
+}
+
+// Using Regular Expression ///////////////////////////////////
+function capitalizeLettersRegEx(str) {
+  // Regular expressions must be between / /, \b means word boundry at index 0,
+  // [a-z] means include all letter, g global (all the words in str), i mseans case insesitive
+  return str.replace(/\b[a-z]/gi, function(char) {
+    return char.toUpperCase();
+  });
+}
+
 // CHALLENGE 5: MAX CHARACTER
 // Return the character that is most common in a string
 // ex. maxCharacter('javascript') == 'a'
-function maxCharacter(str) {}
+function maxCharacter(str) {
+  // This variable holds the new object created in if else statement bellow
+  const charMap = {};
+  // the number that occurs most often
+  let maxNum = 0;
+  // the letter(key) for which the most occurring number belongs to.
+  let maxChar = "";
+  // loop through string as an array and do something with each element(char)...
+  str.split("").forEach(function(char) {
+    // BTW [] means to include something into an empty object
+    // asks if the looped char has been added to if not, add it as a key(property).
+    if (charMap[char]) {
+      charMap[char]++;
+      // each key needs a value so once it gets into charMap, assign it a value,
+      // since an object can only have unique keys, it'll just add to the value if the key(char) repeats
+    } else charMap[char] = 1;
+    // console.log(char);
+  });
+  //  this says as you loop through each item(char) in charMap object (BTW, "let" "in" is how you loop through an object)
+  //  see if current value is greater than maxNum, if so make maxNum that value and it's key maxChar.
+  for (let char in charMap) {
+    if (charMap[char] > maxNum) {
+      maxNum = charMap[char];
+      maxChar = char;
+    }
+  }
+  console.log(charMap.a);
+  return maxChar
+}
 
 // CHALLENGE 6: FIZZBUZZ
 // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
 function fizzBuzz() {
-  for (let i = 1; i < 100; i++) {}
+  for (let i = 1; i < 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log(i + " FIZZBUZZ");
+    } else if (i % 3 === 0) {
+      console.log(i + " FIZZ");
+    } else if (i % 5 === 0) {
+      console.log(i + " BUZZ");
+    }
+  }
 }
 
 // Call Function
-const output = capitalizeLetters("i love javascript");
+const output = maxCharacter("JavaScript");
 
 console.log(output);

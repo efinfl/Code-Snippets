@@ -13,7 +13,7 @@ function twoDArrayLoop(arr) {
     let items = twoD[i].length;
     console.log("Each array index and it's length: " + i, items);
     //Loops through each array of twoD
-    for (let n = 0; n < twoD[i].length; n++) {
+    for (let n = 0; n < items; n++) {
         console.log("Item in each array: " + twoD[i][n])
     }
   }
