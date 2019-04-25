@@ -130,7 +130,7 @@ function capitalizeLetters(str) {
   let a = str.toLowerCase().split(" ");
   // loop through a array with each word bering an item
   for (let i = 0; i < a.length; i++) {
-    // for each item in a (a[i]) pick out indexes fro 0 to before 1 then
+    // for each item in a (a[i]) pick out indexes for 0 to before 1 then
     // make then uppercase, and add everything in a[i] from index 1 on.
     a[i] = a[i].substring(0, 1).toUpperCase() + a[i].substring(1);
   }
