@@ -1,4 +1,4 @@
-/*  Classes can be thought of a templates that encapsulate the data and 
+/*  Classes can be thought of templates that encapsulate the data and 
 functions needed to create new instances of an object */
 
 /* Here we'll create a class called Mammal that will contain all the data and 
@@ -28,17 +28,17 @@ console.log(fluffTalk);
 
 // ~~~~~~~~~~~~~ Inheritance ~~~~~~~~~~~~~ //
 
-// create a new object by extending the class that contains "Arf!" and "Yo!"
+/* You can also create a new object form a class by extending it. The new object cna contain the values ("Arf!" and "Yo!") 
+to pass into the inherited constructor */
 class Dog extends Mammal {
-    constructor() {
-        super("Arf!", "Yo!") // super keyword calls the constructor of the inherited class (Mammal) and you can pass params directly
-    }
+  constructor() {
+    super("Arf!", "Yo!"); // super keyword calls the constructor of the inherited class (Mammal)
+  }
 }
 // assign doggo to be the new Dog object
-let doggo = new Dog()
-console.log(doggo)
+let doggo = new Dog();
+console.log(doggo);
 
-let doggoTalk = doggo.talk()
-console.log(doggo.greet)
-console.log(doggoTalk)
-
+let doggoTalk = doggo.talk();
+console.log(doggo.greet);
+console.log(doggoTalk);
