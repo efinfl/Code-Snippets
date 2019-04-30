@@ -4,6 +4,10 @@
 ### Install
 * npx create-react-app your-app-directory: *Installs React and creates the app directory*
 * npm install bootstrap: *Installs bootstrap for use with React*
+
+### Test the default app
+* npm start: *Starts the app on local server*
+
 ### Import into app.js
 
 * import "bootstrap/dist/css/bootstrap.min.css";

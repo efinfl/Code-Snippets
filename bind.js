@@ -14,7 +14,7 @@ let talkFunction = dog.talk;
 // and is the same as below and this keyword no longer has a reference dog and it's sound property
 // let talkFunction = function(){
 //     console.log(this.sound) 
-// }
+// } 
 
 // thus when the variable function is called, it returns undefined...
 talkFunction();

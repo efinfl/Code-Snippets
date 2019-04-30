@@ -20,7 +20,7 @@ function longestWord(sen) {
     return b.length - a.length;
   });
   // Filter out any words that don't match the length of the first (longest) word.
-  // If it does keep it, if not don't include
+  // If it does, keep it, if not, don't include
   let longestWordArr = sorted.filter(function(word) {
     return word.length === sorted[0].length;
   });
@@ -59,7 +59,7 @@ function chunkArray2(arr, len) {
   arr.forEach(function(val) {
     // get the last element
     let last = chunkedArr[chunkedArr.length - 1];
-    console.log(last)
+    console.log(last);
     // check if last and if it's length is equal to the chunk
     if (!last || last.length === len) {
       chunkedArr.push([val]);
@@ -67,7 +67,7 @@ function chunkArray2(arr, len) {
       last.push(val);
     }
   });
-  return chunkedArr
+  return chunkedArr;
 }
 
 // CHALLENGE 3: FLATTEN ARRAY

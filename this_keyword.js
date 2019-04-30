@@ -22,7 +22,7 @@ function myFunction() {
 
 // ========== In a Constructor function, "this" will refer to the new Object
 function AnotherPerson(first, last) {
-  (this.first = first), (this.last = last);
+  (this.first = first + " "), (this.last = last);
 
   console.log(this);
   // Returns: AnotherPerson { first: 'Dan', last: 'Smith' } and AnotherPerson { first: 'Sally', last: 'May' }
@@ -41,7 +41,7 @@ const yetAnotherPerson = {
     // If "this" is inside of a regular function (and not a method), this will refer to the Window/Global object
     // Even if it's inside of an object
     // In this case, forEach takes two arguments. The second arg can take "this"
-    // which refers to the method's parent object, giving access to that object in the regular function
+    // which refers to the method's parent object(yetAnotherPerson), giving access to that object in the regular function
     this.traits.forEach(function(traits) {
       console.log(this.first + " is", traits);
     }, this);
